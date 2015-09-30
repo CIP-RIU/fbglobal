@@ -1,0 +1,2 @@
+fbglobal variables
+==================
