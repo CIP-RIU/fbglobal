@@ -1,0 +1,9 @@
+Package: fbglobal
+Type: Package
+Title: Fieldboo Global Variables
+Version: 0.1.0
+Author: Reinhard Simon
+Maintainer:  Reinhard Simon <r.simon@cgiar.org>
+Description: Provides access to global variables?
+License: GPL-3
+LazyData: TRUE
