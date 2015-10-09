@@ -50,13 +50,13 @@ fname_material_lists <- function(){
 }
 
 
-#' Ontology path
+#' Dictionary path
 #'
 #' @param crop string
 #' @author Reinhard Simon
 #' @return character file.path
 #' @export
-fname_ontology <- function(crop = NULL) {
+fname_dictionary <- function(crop = NULL) {
   if ( is.null(crop) ) return( NULL )
   fp <- file.path(get_base_dir(), crop, "dictionary")
   if ( !dir.exists(fp) ) dir.create(fp, recursive = TRUE)
