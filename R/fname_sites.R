@@ -1,11 +1,16 @@
+get_base_dir <- function(){
+  "D:\\projects\\hidap2\\xdata"
+}
+
 #' Fieldbook Sites path
 #'
 #' @author Reinhard Simon
 #' @return character file.path
 #' @export
 fname_sites <- function() {
-  file.path("xdata", "table_sites.rda")
+  file.path(get_base_dir(), "table_sites.rda")
 }
+
 
 #' Fieldbook crops path
 #'
@@ -13,15 +18,46 @@ fname_sites <- function() {
 #' @return character file.path
 #' @export
 fname_crops <- function(){
-  file.path("xdata", "table_crops.rda")
+  file.path(get_base_dir(), "table_crops.rda")
+}
+
+
+#' Breeding program data path
+#'
+#' @author Reinhard Simon
+#' @return character file.path
+#' @export
+fname_programs <- function(){
+  file.path(get_base_dir(), "table_programs.rda")
+}
+
+#' Breeding program data path
+#'
+#' @author Reinhard Simon
+#' @return character file.path
+#' @export
+fname_program_stage <- function(){
+  file.path(get_base_dir(), "table_program_stages.rda")
+}
+
+#' Path to lists of plant materials
+#'
+#' @author Reinhard Simon
+#' @return character file.path
+#' @export
+fname_material_lists <- function(){
+  file.path(get_base_dir(), "material_lists")
 }
 
 
 #' Ontology path
 #'
+#' @param crop string
 #' @author Reinhard Simon
 #' @return character file.path
 #' @export
-fname_ontology <- function() {
-  file.path("xdata", "dictionary")
+fname_ontology <- function(crop = NULL) {
+  if ( is.null(crop) ) return( NULL )
+  fp <- file.path(get_base_dir(), crop, "dictionary")
+  if ( !dir.exists(fp) ) dir.create(fp, recursive = TRUE)
 }
