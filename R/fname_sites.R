@@ -58,6 +58,7 @@ fname_material_lists <- function(){
 #' @export
 fname_dictionary <- function(crop = NULL) {
   if ( is.null(crop) ) return( NULL )
-  fp <- file.path(get_base_dir(), crop, "dictionary")
-  if ( !dir.exists(fp) ) dir.create(fp, recursive = TRUE)
+  fp <- file.path(get_base_dir(), crop, "dictionary", paste0("table_dictionary_", crop, ".rda"))
+  if ( !file.exists(fp) ) dir.create(fp, recursive = TRUE)
+  fp
 }
