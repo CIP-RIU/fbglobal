@@ -3,6 +3,7 @@
 export(fname_crops)
 export(fname_dictionary)
 export(fname_material_lists)
+export(fname_module)
 export(fname_program_stage)
 export(fname_programs)
 export(fname_sites)
