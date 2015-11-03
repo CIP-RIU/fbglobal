@@ -1,3 +1,8 @@
+#' Base path
+#'
+#' @author Reinhard Simon
+#' @return character file.path
+#' @export
 get_base_dir <- function(){
   "D:\\projects\\hidap2\\xdata"
 }
