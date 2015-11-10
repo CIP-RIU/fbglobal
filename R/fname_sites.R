@@ -4,7 +4,8 @@
 #' @return character file.path
 #' @export
 get_base_dir <- function(){
-  "D:\\projects\\hidap2\\xdata"
+  file.path("D:", "projects", "hidap2", "xdata")
+  #"D:\\projects\\hidap2\\xdata"
 }
 
 #' Fieldbook Sites path
@@ -79,4 +80,17 @@ fname_module <- function(crop = NULL) {
   fp <- file.path(get_base_dir(), crop, "dictionary", paste0("table_module_", crop, ".rda"))
   fp
 }
+
+#' Cross marker path
+#'
+#' @param crop string
+#' @author Reinhard Simon
+#' @return character file.path
+#' @export
+fname_cross_marker <- function(crop = NULL) {
+  if ( is.null(crop) ) return( NULL )
+  fp <- file.path(get_base_dir(), crop, "cross_marker")
+  fp
+}
+
 
