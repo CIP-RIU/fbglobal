@@ -27,6 +27,16 @@ fname_crops <- function(){
   file.path(get_base_dir(), "table_crops.rda")
 }
 
+#' Fieldbook crops path
+#'
+#' @param crop a crop name
+#' @author Reinhard Simon
+#' @return character file.path
+#' @export
+fname_fieldbooks <- function(){
+  file.path(get_base_dir(), crop, "fieldbooks")
+}
+
 
 #' Breeding program data path
 #'

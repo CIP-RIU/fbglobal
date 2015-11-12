@@ -3,6 +3,7 @@
 export(fname_crops)
 export(fname_cross_marker)
 export(fname_dictionary)
+export(fname_fieldbooks)
 export(fname_material_lists)
 export(fname_module)
 export(fname_program_stage)
