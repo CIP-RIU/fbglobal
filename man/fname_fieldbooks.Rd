@@ -4,7 +4,7 @@
 \alias{fname_fieldbooks}
 \title{Fieldbook crops path}
 \usage{
-fname_fieldbooks()
+fname_fieldbooks(crop)
 }
 \arguments{
 \item{crop}{a crop name}

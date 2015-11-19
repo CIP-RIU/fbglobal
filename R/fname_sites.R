@@ -4,8 +4,9 @@
 #' @return character file.path
 #' @export
 get_base_dir <- function(){
-  file.path("D:", "projects", "hidap2", "xdata")
+  #file.path("D:", "projects", "hidap2", "xdata")
   #"D:\\projects\\hidap2\\xdata"
+  system.file("xdata", package = "hidap")
 }
 
 #' Fieldbook Sites path
@@ -33,7 +34,7 @@ fname_crops <- function(){
 #' @author Reinhard Simon
 #' @return character file.path
 #' @export
-fname_fieldbooks <- function(){
+fname_fieldbooks <- function(crop){
   file.path(get_base_dir(), crop, "fieldbooks")
 }
 
@@ -58,11 +59,18 @@ fname_program_stage <- function(){
 
 #' Path to lists of plant materials
 #'
+#' @param crop character a crop
 #' @author Reinhard Simon
 #' @return character file.path
 #' @export
-fname_material_lists <- function(){
-  file.path(get_base_dir(), "material_lists")
+fname_material_lists <- function(crop = NULL){
+  if(is.null(crop)) {
+    lf  = list.files(get_base_dir(), recursive = TRUE, full.names = TRUE)
+    lf = lf[stringr::str_detect(lf, "material_lists")]
+    dn = unique(dirname(lf))
+    return(dn)
+  }
+  file.path(get_base_dir(), crop, "material_lists")
 }
 
 

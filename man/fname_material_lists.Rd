@@ -4,7 +4,10 @@
 \alias{fname_material_lists}
 \title{Path to lists of plant materials}
 \usage{
-fname_material_lists()
+fname_material_lists(crop = NULL)
+}
+\arguments{
+\item{crop}{character a crop}
 }
 \value{
 character file.path
