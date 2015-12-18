@@ -6,7 +6,8 @@
 get_base_dir <- function(){
   #file.path("D:", "projects", "hidap2", "xdata")
   #"D:\\projects\\hidap2\\xdata"
-  system.file("xdata", package = "hidap")
+  #system.file("xdata", package = "hidap")
+  file.path(Sys.getenv("HIDAP_HOME"), "xdata")
 }
 
 #' Fieldbook Sites path
