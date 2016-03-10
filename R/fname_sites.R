@@ -4,8 +4,14 @@
 #' @return character file.path
 #' @export
 get_base_dir <- function(){
-  file.path(Sys.getenv("HIDAP_HOME"), "xdata")
-}
+#   print("omar")
+# actual_dir <- getwd()
+  #print(getwd())
+  #file.path(getwd(),Sys.getenv("HIDAP_HOME"), "/xdata",fsep = "")
+  #file.path(Sys.getenv("HIDAP_HOME"), "xdata")
+  #A <- "D:/HIDAP"
+  file.path(getwd(), "xdata")
+  }
 
 #' Fieldbook Sites path
 #'
