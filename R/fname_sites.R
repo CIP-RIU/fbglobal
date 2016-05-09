@@ -4,9 +4,8 @@
 #' @return character file.path
 #' @export
 get_base_dir <- function(){
-  #file.path(Sys.getenv("HIDAP_HOME"), "xdata")
-  file.path( "xdata")
-}
+  file.path(getwd(), "xdata")
+  }
 
 #' Fieldbook Sites path
 #'
