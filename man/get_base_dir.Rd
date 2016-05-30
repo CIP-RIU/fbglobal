@@ -7,7 +7,7 @@
 get_base_dir()
 }
 \value{
-character file.path
+character file.path or NULL
 }
 \description{
 Base path

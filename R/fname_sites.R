@@ -1,10 +1,21 @@
 #' Base path
 #'
 #' @author Reinhard Simon
-#' @return character file.path
+#' @return character file.path or NULL
 #' @export
 get_base_dir <- function(){
-  file.path(Sys.getenv("HIDAP_HOME"), "xdata")
+  #file.path(Sys.getenv("HIDAP_HOME"), "xdata")
+  hddir = NULL
+
+  locos = Sys.getenv("R_HOME")
+  if(stringr::str_detect(locos, ":")){ # Only on Windows!
+    hddir = file.path(Sys.getenv("LOCALAPPDATA"), "HIDAP")
+  }
+
+  if(stringr::str_detect(locos, "Frameworks/R.framework")) { #assume MACOS
+    hddir = file.path("/Users", Sys.getenv("USER"),"Dcouments", "HIDAP")
+  }
+  hddir
 }
 
 #' Fieldbook Sites path
