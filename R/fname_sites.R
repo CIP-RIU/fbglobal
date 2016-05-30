@@ -4,7 +4,6 @@
 #' @return character file.path or NULL
 #' @export
 get_base_dir <- function(){
-  #file.path(Sys.getenv("HIDAP_HOME"), "xdata")
   hddir = NULL
 
   locos = Sys.getenv("R_HOME")
