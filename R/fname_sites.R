@@ -1,18 +1,21 @@
 #' Base path
 #'
+#' @param mode mode of data: Local, Demo, BrAPI, ...
 #' @author Reinhard Simon
 #' @return character file.path or NULL
 #' @export
-get_base_dir <- function(){
+get_base_dir <- function(mode = "Demo"){
   hddir = NULL
+
+  sbdir = file.path("HIDAP", "xdata", mode)
 
   locos = Sys.getenv("R_HOME")
   if(stringr::str_detect(locos, ":")){ # Only on Windows!
-    hddir = file.path(Sys.getenv("LOCALAPPDATA"), "HIDAP")
+    hddir = file.path(Sys.getenv("LOCALAPPDATA"), sbdir)
   }
 
   if(stringr::str_detect(locos, "Frameworks/R.framework")) { #assume MACOS
-    hddir = file.path("/Users", Sys.getenv("USER"),"Dcouments", "HIDAP")
+    hddir = file.path("/Users", Sys.getenv("USER"),"Dcouments", sbdir)
   }
   hddir
 }
