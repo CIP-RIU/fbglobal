@@ -15,7 +15,7 @@ get_base_dir <- function(mode = "Demo"){
   }
 
   if(stringr::str_detect(locos, "Frameworks/R.framework")) { #assume MACOS
-    hddir = file.path("/Users", Sys.getenv("USER"),"Dcouments", sbdir)
+    hddir = file.path("/Users", Sys.getenv("USER"),"Documents", sbdir)
   }
   hddir
 }
