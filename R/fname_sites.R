@@ -5,9 +5,11 @@
 #' @return character file.path or NULL
 #' @export
 get_base_dir <- function(mode = "Demo"){
-  hddir = NULL
+  #default to Linux server susing wwww subir in wd as starting point
+  hddir = "www"
 
   sbdir = file.path("HIDAP", "xdata", mode)
+  hddir = file.path(hddir, sbdir)
 
   locos = Sys.getenv("R_HOME")
   if(stringr::str_detect(locos, ":")){ # Only on Windows!
