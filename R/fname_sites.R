@@ -1,14 +1,14 @@
 #' Base path
 #'
-#' @param mode mode of data: Local, Demo, BrAPI, ...
+#' @param amode mode of data: Local, Demo, BrAPI, ...
 #' @author Reinhard Simon
 #' @return character file.path or NULL
 #' @export
-get_base_dir <- function(mode = "Demo"){
+get_base_dir <- function(amode = "Demo"){
   #default to Linux server susing wwww subir in wd as starting point
   hddir = "www"
 
-  sbdir = file.path("HIDAP", "xdata", mode)
+  sbdir = file.path("HIDAP", "xdata", amode)
   hddir = file.path(hddir, sbdir)
 
   locos = Sys.getenv("R_HOME")
