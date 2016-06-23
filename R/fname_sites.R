@@ -4,10 +4,12 @@
 #' @author Reinhard Simon
 #' @return character file.path or NULL
 #' @export
-get_base_dir <- function(amode = "Demo"){
-  hddir = NULL
+get_base_dir <- function(mode = "Demo"){
+  #default to Linux server susing wwww subir in wd as starting point
+  hddir = "www"
 
-  sbdir = file.path("HIDAP", "xdata", amode)
+  sbdir = file.path("HIDAP", "xdata", mode)
+  hddir = file.path(hddir, sbdir)
 
   locos = Sys.getenv("R_HOME")
   if(stringr::str_detect(locos, ":")){ # Only on Windows!
@@ -15,7 +17,7 @@ get_base_dir <- function(amode = "Demo"){
   }
 
   if(stringr::str_detect(locos, "Frameworks/R.framework")) { #assume MACOS
-    hddir = file.path("/Users", Sys.getenv("USER"),"Dcouments", sbdir)
+    hddir = file.path("/Users", Sys.getenv("USER"),"Documents", sbdir)
   }
   hddir
 }
