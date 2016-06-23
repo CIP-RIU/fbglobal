@@ -4,10 +4,10 @@
 #' @author Reinhard Simon
 #' @return character file.path or NULL
 #' @export
-get_base_dir <- function(mode = "Demo"){
+get_base_dir <- function(amode = "Demo"){
   hddir = NULL
 
-  sbdir = file.path("HIDAP", "xdata", mode)
+  sbdir = file.path("HIDAP", "xdata", amode)
 
   locos = Sys.getenv("R_HOME")
   if(stringr::str_detect(locos, ":")){ # Only on Windows!
