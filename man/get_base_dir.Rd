@@ -4,10 +4,13 @@
 \alias{get_base_dir}
 \title{Base path}
 \usage{
-get_base_dir()
+get_base_dir(amode = "Demo")
+}
+\arguments{
+\item{amode}{mode of data: Local, Demo, BrAPI, ...}
 }
 \value{
-character file.path
+character file.path or NULL
 }
 \description{
 Base path

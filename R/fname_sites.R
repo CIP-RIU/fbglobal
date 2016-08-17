@@ -1,17 +1,26 @@
 #' Base path
 #'
+#' @param amode mode of data: Local, Demo, BrAPI, ...
 #' @author Reinhard Simon
-#' @return character file.path
+#' @return character file.path or NULL
 #' @export
-get_base_dir <- function(){
-#   print("omar")
-# actual_dir <- getwd()
-  #print(getwd())
-  #file.path(getwd(),Sys.getenv("HIDAP_HOME"), "/xdata",fsep = "")
-  #file.path(Sys.getenv("HIDAP_HOME"), "xdata")
-  #A <- "D:/HIDAP"
-  file.path(getwd(), "xdata")
+get_base_dir <- function(amode = "Demo"){
+  #default to Linux server susing wwww subir in wd as starting point
+  hddir = "www"
+
+  sbdir = file.path("HIDAP", "xdata", amode)
+  hddir = file.path(hddir, sbdir)
+
+  locos = Sys.getenv("R_HOME")
+  if(stringr::str_detect(locos, ":")){ # Only on Windows!
+    hddir = file.path(Sys.getenv("LOCALAPPDATA"), sbdir)
   }
+
+  if(stringr::str_detect(locos, "Frameworks/R.framework")) { #assume MACOS
+    hddir = file.path("/Users", Sys.getenv("USER"),"Documents", sbdir)
+  }
+  hddir
+}
 
 #' Fieldbook Sites path
 #'
