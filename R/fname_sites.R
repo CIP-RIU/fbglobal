@@ -19,6 +19,8 @@ get_base_dir <- function(amode = "Demo"){
   if(stringr::str_detect(locos, "Frameworks/R.framework")) { #assume MACOS
     hddir = file.path("/Users", Sys.getenv("USER"),"Documents", sbdir)
   }
+  if(!dir.exists(hddir)) dir.create(hddir, recursive = TRUE)
+
   hddir
 }
 
