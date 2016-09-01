@@ -4,7 +4,7 @@
 #' @author Reinhard Simon
 #' @return character file.path or NULL
 #' @export
-get_base_dir <- function(amode = "Demo"){
+get_base_dir <- function(amode = "Default"){
   #default to Linux server susing wwww subir in wd as starting point
   hddir = "www"
 
@@ -19,8 +19,14 @@ get_base_dir <- function(amode = "Demo"){
   if(stringr::str_detect(locos, "Frameworks/R.framework")) { #assume MACOS
     hddir = file.path("/Users", Sys.getenv("USER"),"Documents", sbdir)
   }
-  if(!dir.exists(hddir)) dir.create(hddir, recursive = TRUE)
-
+  if(!dir.exists(hddir)) {
+    dir.create(hddir, recursive = TRUE)
+    if(amode == "Default") {
+      # copy over default datasets from fbglobal dir
+      dd = system.file("xdata/Default", package = "fbglobal")
+      file.copy(from = dd, to = hddir, recursive = TRUE)
+    }
+  }
   hddir
 }
 
