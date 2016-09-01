@@ -24,7 +24,7 @@ get_base_dir <- function(amode = "Default"){
     if(amode == "Default") {
       # copy over default datasets from fbglobal dir
       dd = system.file("xdata/Default", package = "fbglobal")
-      file.copy(from = dd, to = hddir, recursive = TRUE)
+      file.copy(from = dd, to = get_base_dir(""), recursive = TRUE)
     }
   }
   hddir
