@@ -6,6 +6,7 @@
 #' @export
 get_base_dir <- function(amode = "Default"){
   #default to Linux server susing wwww subir in wd as starting point
+  if(amode == "Default") return("www")
   hddir = "www"
 
   sbdir = file.path("HIDAP", "xdata", amode)
@@ -52,11 +53,12 @@ fname_crops <- function(){
 #' Fieldbook crops path
 #'
 #' @param crop a crop name
+#' @param amode a source path
 #' @author Reinhard Simon
 #' @return character file.path
 #' @export
-fname_fieldbooks <- function(crop){
-  file.path(get_base_dir(), crop, "fieldbooks")
+fname_fieldbooks <- function(crop, amode = "Default"){
+  file.path(get_base_dir(amode), crop, "fieldbooks")
 }
 
 

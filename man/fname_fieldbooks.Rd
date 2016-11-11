@@ -4,10 +4,12 @@
 \alias{fname_fieldbooks}
 \title{Fieldbook crops path}
 \usage{
-fname_fieldbooks(crop)
+fname_fieldbooks(crop, amode = "Default")
 }
 \arguments{
 \item{crop}{a crop name}
+
+\item{amode}{a source path}
 }
 \value{
 character file.path
