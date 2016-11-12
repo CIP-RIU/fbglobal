@@ -1,12 +1,13 @@
 #' Base path
 #'
 #' @param amode mode of data: Local, Demo, BrAPI, ...
+#' @param is_server logical, default = FALSE
 #' @author Reinhard Simon
 #' @return character file.path or NULL
 #' @export
-get_base_dir <- function(amode = "Default"){
+get_base_dir <- function(amode = "Default", is_server = FALSE){
   #default to Linux server susing wwww subir in wd as starting point
-  if(amode == "Default") return("www")
+  if(is_server) return(file.path("www", "xdata", "brapi"))
   hddir = "www"
 
   sbdir = file.path("HIDAP", "xdata", amode)
