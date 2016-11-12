@@ -7,7 +7,13 @@
 #' @export
 get_base_dir <- function(amode = "Default", is_server = FALSE){
   #default to Linux server susing wwww subir in wd as starting point
-  if(is_server) return(file.path("www", "xdata", "brapi"))
+  if(is_server) {
+    dbName = Sys.getenv("BRAPI_DBNAME")
+    fp = file.path("www", "xdata", "brapi", dbName)
+    print(fp)
+    if(!dir.exists(fp)) dir.create(fp)
+    return(fp)
+  }
   hddir = "www"
 
   sbdir = file.path("HIDAP", "xdata", amode)
