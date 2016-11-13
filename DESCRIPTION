@@ -1,10 +1,10 @@
 Package: fbglobal
 Type: Package
 Title: Fieldbook Global Variables
-Version: 0.2.9
+Version: 0.2.10
 Author: Reinhard Simon
 Maintainer: Reinhard Simon <r.simon@cgiar.org>
-Description: Provides access to global variables
+Description: Provides access to global variables.
 Depends:
     R (>= 3.2.4)
 Suggests:
