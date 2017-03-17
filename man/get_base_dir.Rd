@@ -20,4 +20,3 @@ Base path
 \author{
 Reinhard Simon
 }
-

@@ -18,4 +18,3 @@ Path to lists of plant materials
 \author{
 Reinhard Simon
 }
-

@@ -20,4 +20,3 @@ Fieldbook crops path
 \author{
 Reinhard Simon
 }
-

@@ -18,4 +18,3 @@ Dictionary path
 \author{
 Reinhard Simon
 }
-
