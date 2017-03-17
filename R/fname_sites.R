@@ -44,7 +44,7 @@ get_base_dir <- function(amode = "Default", is_server = FALSE){
 #' @return character file.path
 #' @export
 fname_sites <- function() {
-  file.path(get_base_dir(), "table_sites.rda")
+  file.path(get_base_dir(), "table_sites.rds")
 }
 
 
