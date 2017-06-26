@@ -15,4 +15,3 @@ Fieldbook Sites path
 \author{
 Reinhard Simon
 }
-

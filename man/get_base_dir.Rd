@@ -4,10 +4,12 @@
 \alias{get_base_dir}
 \title{Base path}
 \usage{
-get_base_dir(amode = "Demo")
+get_base_dir(amode = "Default", is_server = FALSE)
 }
 \arguments{
 \item{amode}{mode of data: Local, Demo, BrAPI, ...}
+
+\item{is_server}{logical, default = FALSE}
 }
 \value{
 character file.path or NULL
@@ -18,4 +20,3 @@ Base path
 \author{
 Reinhard Simon
 }
-

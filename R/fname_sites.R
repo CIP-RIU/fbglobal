@@ -1,11 +1,19 @@
 #' Base path
 #'
 #' @param amode mode of data: Local, Demo, BrAPI, ...
+#' @param is_server logical, default = FALSE
 #' @author Reinhard Simon
 #' @return character file.path or NULL
 #' @export
-get_base_dir <- function(amode = "Demo"){
+get_base_dir <- function(amode = "Default", is_server = FALSE){
   #default to Linux server susing wwww subir in wd as starting point
+  if(is_server) {
+    dbName = Sys.getenv("BRAPI_DBNAME")
+    fp = file.path("www", "xdata", "brapi", dbName)
+    print(fp)
+    if(!dir.exists(fp)) dir.create(fp)
+    return(fp)
+  }
   hddir = "www"
 
   sbdir = file.path("HIDAP", "xdata", amode)
@@ -19,6 +27,14 @@ get_base_dir <- function(amode = "Demo"){
   if(stringr::str_detect(locos, "Frameworks/R.framework")) { #assume MACOS
     hddir = file.path("/Users", Sys.getenv("USER"),"Documents", sbdir)
   }
+  if(!dir.exists(hddir)) {
+    dir.create(hddir, recursive = TRUE)
+    if(amode == "Default") {
+      # copy over default datasets from fbglobal dir
+      dd = system.file("xdata/Default", package = "fbglobal")
+      file.copy(from = dd, to = get_base_dir(""), recursive = TRUE)
+    }
+  }
   hddir
 }
 
@@ -28,7 +44,7 @@ get_base_dir <- function(amode = "Demo"){
 #' @return character file.path
 #' @export
 fname_sites <- function() {
-  file.path(get_base_dir(), "table_sites.rda")
+  file.path(get_base_dir(), "table_sites.rds")
 }
 
 
@@ -44,11 +60,12 @@ fname_crops <- function(){
 #' Fieldbook crops path
 #'
 #' @param crop a crop name
+#' @param amode a source path
 #' @author Reinhard Simon
 #' @return character file.path
 #' @export
-fname_fieldbooks <- function(crop){
-  file.path(get_base_dir(), crop, "fieldbooks")
+fname_fieldbooks <- function(crop, amode = "Default"){
+  file.path(get_base_dir(amode), crop, "fieldbooks")
 }
 
 

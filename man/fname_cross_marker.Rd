@@ -18,4 +18,3 @@ Cross marker path
 \author{
 Reinhard Simon
 }
-
