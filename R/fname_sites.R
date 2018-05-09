@@ -38,7 +38,7 @@ get_base_dir <- function(amode = "Default", is_server = FALSE){
        #hddir   <- "/home/obenites/HIDAP_SB_1.0.0/hidap/inst/hidap_agrofims/www/internal_files/"\
        #print("linux")
        cd <- getwd()
-       hddir <-  file.path(cd, "hidap_agrofims/www/internal_files/")
+       hddir <-  file.path(cd, "www/internal_files/")
        #print(hddir)
      }
   }
