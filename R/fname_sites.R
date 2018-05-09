@@ -27,15 +27,24 @@ get_base_dir <- function(amode = "Default", is_server = FALSE){
   if(stringr::str_detect(locos, "Frameworks/R.framework")) { #assume MACOS
     hddir = file.path("/Users", Sys.getenv("USER"),"Documents", sbdir)
   }
-  
+
    if (stringr::str_detect(locos,"/usr/lib")){
 
      #hddir <-  #file.path("/Users", Sys.getenv("USER"), "Documents", sbdir)
-     hddir   <- "/home/obenites/HIDAP_SB_1.0.0/hidap/inst/hidap_agrofims/www/internal_files/"
+     #hddir   <- "/home/obenites/HIDAP_SB_1.0.0/hidap/inst/hidap_agrofims/www/internal_files/"
+     if (stringr::str_detect(locos,"/usr/lib")){
+
+       #hddir <-  #file.path("/Users", Sys.getenv("USER"), "Documents", sbdir)
+       #hddir   <- "/home/obenites/HIDAP_SB_1.0.0/hidap/inst/hidap_agrofims/www/internal_files/"\
+       #print("linux")
+       cd <- getwd()
+       hddir <-  file.path(cd, "hidap_agrofims/www/internal_files/")
+       #print(hddir)
+     }
   }
 
-  
-  
+
+
   if(!dir.exists(hddir)) {
     dir.create(hddir, recursive = TRUE)
     if(amode == "Default") {
